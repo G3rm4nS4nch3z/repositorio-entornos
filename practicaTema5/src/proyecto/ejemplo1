@@ -1,0 +1,12 @@
+@startuml
+left to right direction
+:Admin:
+:GPS:
+GPS -> (Envío localización)
+Admin -> (Programar rutas)
+Admin -d-> (Registro GPS)
+Admin -u-> (Ver mapa)
+(Localizar mas cercano)--|>(Ver mapa)
+(Ver vehiculos en ruta)
+(ver vehiculos parados)
+@enduml

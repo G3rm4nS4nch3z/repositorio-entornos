@@ -1,0 +1,27 @@
+@startuml
+actor Propietario
+
+Propietario-->inspector:Introduce código de verificación
+
+alt Verificación correcta de código
+	inspector-->contenedor:Abre
+	Propietario-->bolsa:Introduce
+	inspector-->bolsa:Escanea
+
+	alt Escaner correcto
+		inspector-->cuenta: Ingresa puntos
+		cuenta-->Propietario:Administra
+
+	else Escaner incorrecto
+		inspector-->cuenta: NO ingresa puntos
+		cuenta-->Propietario:NO administra
+		inspector-->madre:Activa
+		madre-->bolsa:Saca al esterior
+
+	end
+
+	else Verificación incorrecta del código
+		inspector-->contenedor:NO abre contenedror
+
+	end
+@enduml

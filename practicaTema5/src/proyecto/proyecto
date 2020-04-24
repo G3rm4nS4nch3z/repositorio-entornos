@@ -1,0 +1,7 @@
+@startuml
+actor juan
+ Juan -> Paco: suda
+ Juan <-- Paco: responde
+ Juan -> Jesús: suda
+ Juan <-- Jesús: responde
+@enduml

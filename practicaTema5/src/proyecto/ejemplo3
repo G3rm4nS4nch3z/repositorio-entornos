@@ -1,0 +1,15 @@
+@startuml
+database BD
+participant Administrador
+participant Mapa
+participant Vehiculo
+Administrador->BD:Crear ruta
+BD->Administrador:Ruta creada
+Administrador->Mapa:Vehiculo mas cercano
+Mapa->Administrador:Matricula del vehiculo
+Administrador->Vehiculo:Asigna ruta
+Vehiculo->Administrador:Confirma ruta
+Administrador->BD:Ruta programada OK
+
+
+@enduml

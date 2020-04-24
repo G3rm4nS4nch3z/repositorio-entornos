@@ -1,0 +1,18 @@
+@startuml
+	actor Telefonista
+	Telefonista-->llamada:Realiza
+	llamada-->socio:Solicita datos
+	database base_datos
+	socio-->base_datos:Consulta datos
+	base_datos-->socio:Devuelve datos
+	socio-->llamada:Recibe datos
+	llamada-->registro_reclamaciones:Realiza una petición
+	registro_reclamaciones-->Telefonista: Muestra mensaje en pantalla
+	alt Socio interesado
+		llamada-->registro:Cede el control
+		registro-->llamada:Lanza una locución para realizar la donación
+		registro-->llamada:finaliza
+	else Socio con problemas o reclamaciones
+		Telefonista-->llamada:Finaliza
+	end
+@enduml

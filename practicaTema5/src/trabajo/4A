@@ -1,0 +1,14 @@
+@startuml
+
+[*] -d-> libre
+libre -l-> reservada
+reservada -l-> libre: "+20 min"
+reservada -l-> ocupada
+ocupada -l-> pidiendo
+pidiendo -d-> espera_comida
+espera_comida -r-> servidos
+servidos -r-> esperando_cuneta
+esperando_cuneta -r-> pagado
+pagado -u-> libre
+
+@enduml

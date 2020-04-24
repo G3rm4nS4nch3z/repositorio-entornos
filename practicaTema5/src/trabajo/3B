@@ -1,0 +1,108 @@
+@startuml
+
+class usuario{
+username
+password
+login()
+registro()
+
+
+
+}
+
+class ciudad{
+indice_prosp
+list<ciudadano>
+list<artesano>
+list<tabernero>
+list<militar>
+list<granjero>
+list<cura>
+countCiudadanos()
+countProductos()
+addTaberna()
+addEspectaculo()
+countArmas()
+recaudarImpuestos()
+}
+
+class ciudadano{
+Nombre varchar
+vida
+dinero
+Descendencia boolean
+indice_alegria
+ajustesVida()
+ajustesAlegria()
+}
+
+class artesano {
+produccion
+vender()
+}
+
+class militar{
+armas
+comprarArmas()
+}
+
+class granjero{
+produccion
+vender()
+}
+
+class tabernero{
+taberna
+vender()
+}
+
+class cura{
+evitarFalsosProfetas()
+}
+
+class eventos{
+evSequia()
+evAtaqueBarbaro()
+evFalsoProfeta()
+evRevueltaCallejera()
+evPeste()
+evNacimiento()
+evRecaudar()
+}
+
+class partida{
+Usuario
+fecha
+Ciudad
+Estado
+list<Jornada>
+crearCiudad()
+guardarPartida()
+lanzarEvento()
+}
+class jornada{
+dia
+list<eventos>
+elegirEventoAleatorio()
+}
+class motorJuego{
+crearPartida()
+cargarPartida(partida)
+eliminarPartida(partida)
+}
+class preguntas{
+pregunta
+respuesta
+enviarPregunta()
+guardarRespuesta()
+
+}
+ciudadano--|>artesano
+ciudadano--|>tabernero
+ciudadano--|>militar
+ciudadano--|>cura
+ciudadano--|>granjero
+@enduml
+
+
+		

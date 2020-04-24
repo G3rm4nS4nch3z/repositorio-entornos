@@ -1,0 +1,66 @@
+@startuml
+
+class Reserva {
+
+Codigo 
+Usuario Usuario
+Vuelo Vuelo
+FechaVuelo Date 
+HoraVuelo Time
+Tarifa Float
+FechaReserva Date
+Pasajeros lista <pasajero>
+reservarAsientos()
+}
+
+class Vuelo {
+
+Origen String
+Destino String
+Horario String
+Tarifa Float
+Codigo String
+Aerolinea String
+Informacion String
+Asientos List <Asientos>
+VerAsientosDisponibles()
+obtenerPrimeroDisponible()
+}
+
+class Usuario{
+
+Nombre String
+Correo String
+Contraseña String
+VISA String
+Registrar()
+Validacion()
+ValidacionTargeta()
+ValidacionDNI()
+}
+
+class TSR{
+
+ConsultaVuelos()
+ReservaVuelos()
+CompraVuelos()
+}
+
+class Asiento {
+
+Numero int
+Categoria enum: lturista,bisnes
+Estado: libre,ocupado
+Tipo enum: pasillo,medio,ventanilla, salida
+AsignarAsiento()
+LiberarAsiento()
+}
+
+class pasajero{
+DatosPasajero
+Asiento
+}
+
+@enduml
+
+

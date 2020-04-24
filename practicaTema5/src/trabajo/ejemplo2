@@ -1,0 +1,61 @@
+@startuml
+participant "Puerto de datos \n del cliente 1046" as A 
+participant "Puerto de control \n del cliente 1045" as B 
+participant "Puerto de control \n del servidor 21" as C
+participant "Puerto de datos \n del servidor 20" as D 
+participant "Puerto de datos \n del servidor 2040" as E 
+  alt Modo Activo
+		B-->C:IP cliente 1045/ IP servidor FTP 21
+		note left
+		  1. Mandar el
+		   comando PORT 
+		   y el Puerto 1046
+		end note
+		C-->B: IP servidor FTP 21/ IP cliente 1045
+		note right
+		  2. Enviar comando 
+		 ACK
+		end note
+		D-->A:IP servidor FTP 20/ IP cliente 1046
+		note right
+		  3. Enviar
+		 Datos
+		end note
+		A-->D: IP cliente 1046/ IP servidor FTP 20
+		note left
+		  4. Enviar comando 
+		  ACK
+		end note
+		
+    else Modo Pasivo
+		B-->C:IP cliente 1045/ IP servidor FTP 21
+		note left
+		  1. Mandar el
+		   comando PASV 
+		end note
+		C-->B: IP servidor FTP 21/ IP cliente 1045
+		note right
+		  2. Respuesta del 
+		  servidor con un
+		  puerto >1024
+		end note
+		A-->E: cliente 1046/ IP servidor FTP 2040 
+		note left
+		  3. Iniciar la conexion
+		  de datos desde el
+		  puerto 1046 a un 
+		  puerto aleatorio
+		  del servidor
+		end note
+		E-->A: IP servidor FTP 2040/ IP cliente 1046
+		note right
+		 4. Enviar comando 
+		  ACK
+		end note
+		note left
+		 5. Cerrar la conexión
+		end note
+  end
+
+
+@enduml

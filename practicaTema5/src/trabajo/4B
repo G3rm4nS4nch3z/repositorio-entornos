@@ -1,0 +1,18 @@
+@startuml
+
+[*] -->vacio
+vacio-l->seleccion_articulo
+seleccion_articulo-l->articulo_modificado
+articulo_modificado-->finalizar_pedido
+seleccion_articulo-d->finalizar_pedido
+finalizar_pedido-d->pago
+pago-->confirmado
+pago-r->cancelado
+cancelado-l->pago:reintentar
+cancelado-u-->vacio
+confirmado-l->seguimiento
+confirmado-->entregado
+seguimiento-->entregado
+entregado-->[*]
+
+@enduml

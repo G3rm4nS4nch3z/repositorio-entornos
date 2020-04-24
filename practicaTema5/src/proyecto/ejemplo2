@@ -1,0 +1,18 @@
+@startuml
+database BBDD
+GPS-->Servicio:Solicitud de registro
+Servicio->App_Admin:Peticion registro GPS
+App_Admin->BBDD:Alta GPS
+BBDD-->App_Admin:AltaOK
+App_Admin-->Servicio:Peticion de registro OK
+
+alt susccess case
+BBDD-->App_Admin: Alta confirmada
+App_Admin-->Servicio: Aceptacion de solicitud
+Servicio--> GPS: registro completado
+else failure case
+BBDD-->App_Admin: no se ha podido de la solicitud
+App_Admin-->Servicio: rechazo de solicitud
+Servicio--> GPS: registro NO completado
+end
+@enduml

@@ -1,0 +1,31 @@
+@startuml
+:empleado_caja:
+:cocinero:
+:Repartidor:
+:Admin_Sistema:
+:Contable:
+empleado_caja-r->(Realiza el pedido)
+empleado_caja-l->(Ejecuta el cobro)
+empleado_caja-u->(envia demanda a cocina)
+empleado_caja-->(marca pedido como entregado y cobrado)
+cocinero-u->(revisa demandas enviadas)
+cocinero-->(anota demanda completada \n en el sistema)
+usecase UC2 as"
+anota en el sistema:
+--
+El telf del pedido
+..
+La antrega
+..
+El cobro
+..
+"
+Repartidor-u->(Revisa Sistema)
+Repartidor-->(Marca como entregado y cobrado)
+(Marca como entregado y cobrado)-->(UC2)
+Admin_Sistema-u->(revisan precios y los\n adecuan a la tarifa vigente)
+Admin_Sistema-->(añade o elimina menus\n y complementos individuales)
+Contable-u->(Comprueba Caja)
+Contable-l->(Verifica Dinero)
+Contable-->(compara en el sistema)
+@enduml

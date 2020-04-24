@@ -1,0 +1,34 @@
+@startuml
+:Profesor:
+:Administrador:
+
+usecase UC1 as"
+Crear acta
+--
+Añadir alumno
+..
+Borrar alumno
+..
+Integrar varias actas \n en una grupal
+"
+Profesor-u->UC1
+Profesor-r->(Imprimir las actas y la lista \n provisional de calificaciones)
+Profesor-l->(Obtener estadisticas y \n  graficos de calificaciones)
+Profesor-->(Acceso a la calculadora \n a la hora de poner las notas)
+Profesor-->(Consultar informacion \n de cualquier alumno y \n porcentaje de presentados)
+Profesor-->(Exportar a excel la lista \n de alumnos con sus calificaciones )
+
+
+Administrador-u->(Gestiona datos del alumno)
+(Gestiona datos del alumno)-u->(Matriculación del alumno)
+(Gestiona datos del alumno)-l->(Altas/Bajas/Modificación)
+(Gestiona datos del alumno)-r->(Historial académico)
+(Matriculación del alumno)-u->(Si no pueden matricularse y el motivo)
+Administrador-l->(Gestión de asignaturas)
+(Gestión de asignaturas)-l->(cantidad de alumnos y creditos)
+Administrador-r->(Gesión de titulaciones)
+Administrador-->(Gestión de grupos)
+(Gestión de grupos)-->(cantidad de alumnos permitidos)
+(Gestión de grupos)-l->(horario)
+(Gestión de grupos)-r->(codigo profesor)
+@enduml
